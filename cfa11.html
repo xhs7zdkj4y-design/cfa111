@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CFA">
+<title>CFA L1</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBFAF8;--w:#FFF;--tx:#1C1C1A;--tx2:#5C5C57;--tx3:#9C9B95;--bd:#E5E3DC;--g:#2F6B3A;--g2:#3D8B4B;--gbg:#EDF5EF;--r:#C0392B;--rbg:#FDEDEB;--a:#D4850A;--abg:#FEF6E8;--bl:#2471A3;--blbg:#EBF3FA;--pu:#6C3FA0;--pubg:#F2ECF9;--p1:#2471A3;--p2:#2F6B3A;--p3:#D4850A;--p4:#6C3FA0;--p5:#C0392B;--p6:#3C3C3C;--st:env(safe-area-inset-top);--sb:env(safe-area-inset-bottom)}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--tx);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;padding-top:var(--st);padding-bottom:calc(56px + var(--sb))}
+.a{max-width:500px;margin:0 auto}
+.top{position:sticky;top:0;z-index:30;background:rgba(251,250,248,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--bd);padding:10px 16px;padding-top:calc(10px + var(--st))}
+.ti{display:flex;align-items:center;gap:10px}
+.rg{position:relative;width:38px;height:38px;flex-shrink:0}
+.rg svg{transform:rotate(-90deg)}
+.rgb{fill:none;stroke:var(--bd);stroke-width:5}
+.rgf{fill:none;stroke:var(--g);stroke-width:5;stroke-linecap:round;transition:stroke-dashoffset .8s}
+.rgt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:800;color:var(--g)}
+.tt{font-family:'Newsreader',serif;font-size:.95rem;font-weight:600}.tt em{color:var(--g);font-style:italic}
+.ts{font-size:.6rem;color:var(--tx3)}
+.sts{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:8px 16px}
+.st{background:var(--w);border:1px solid var(--bd);border-radius:8px;padding:7px;text-align:center}
+.sv{font-size:1rem;font-weight:800;line-height:1.2}
+.sl{font-size:.5rem;color:var(--tx3);text-transform:uppercase;letter-spacing:.04em;margin-top:1px}
+.ct{padding:0 16px 16px}
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(251,250,248,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--bd);display:flex;padding-bottom:var(--sb)}
+.ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 4px;cursor:pointer;color:var(--tx3);transition:color .15s}
+.ni.on{color:var(--g)}
+.ni svg{width:20px;height:20px}
+.nl{font-size:.5rem;font-weight:600}
+.pnl{display:none}.pnl.on{display:block}
+.al{border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:.78rem;line-height:1.45;border-left:3px solid}
+.alw{background:var(--abg);border-color:var(--a);color:#7A5008}
+.ali{background:var(--blbg);border-color:var(--bl);color:#1A4A6E}
+.al b{font-weight:600}
+.tp{margin-bottom:6px;border:1px solid var(--bd);border-radius:10px;background:var(--w);overflow:hidden}
+.tph{padding:10px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;user-select:none}
+.tpd{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.tpm{flex:1}.tpn{font-weight:600;font-size:.84rem}.tps{font-size:.62rem;color:var(--tx3)}
+.tpr{text-align:right;flex-shrink:0}.tpv{font-weight:800;font-size:.78rem}
+.tpp{width:46px;height:4px;background:var(--bg);border-radius:2px;overflow:hidden;margin-top:2px}
+.tppf{height:100%;border-radius:2px;transition:width .4s}
+.tpa{color:var(--tx3);transition:transform .3s;font-size:.8rem;flex-shrink:0}
+.tp.open .tpa{transform:rotate(90deg)}
+.tpb{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.tp.open .tpb{max-height:6000px}
+.tpi{padding:0 12px 10px;border-top:1px solid var(--bd)}
+.ckp{margin:6px 0;padding:7px 10px;border-radius:6px;font-size:.7rem;line-height:1.4;border-left:3px solid}
+.ckpg{background:var(--gbg);border-color:var(--g);color:#1D4A24}
+.ckpa{background:var(--abg);border-color:var(--a);color:#7A5008}
+.ckpr{background:var(--rbg);border-color:var(--r);color:#7A1A10}
+.m{display:flex;align-items:center;gap:8px;padding:7px 2px;font-size:.76rem;color:var(--tx2);cursor:pointer;min-height:36px;border-bottom:1px solid #F5F3EE}
+.m:last-of-type{border-bottom:none}
+.m input{accent-color:var(--g);width:17px;height:17px;flex-shrink:0;cursor:pointer}
+.m.done{opacity:.3;text-decoration:line-through}
+.mw{font-size:.55rem;color:var(--tx3);margin-left:auto;flex-shrink:0;padding-left:4px}
+.tc{background:var(--w);border:1px solid var(--bd);border-radius:10px;padding:12px;margin-bottom:8px}
+.tch{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.tct{font-weight:700;font-size:.86rem}.tcn{font-size:.6rem;color:var(--tx3)}
+.ws{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.wsb{width:36px;height:36px;border-radius:8px;border:1px solid var(--bd);background:var(--w);color:var(--tx2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.wsb:active{background:var(--gbg);color:var(--g)}
+.wsl{font-size:.8rem;font-weight:600;flex:1;text-align:center}
+.hg{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:8px}
+.hd{display:flex;flex-direction:column;align-items:center;gap:2px}
+.hl{font-size:.52rem;font-weight:700;color:var(--tx3)}.ht{font-size:.46rem;color:var(--tx3)}
+.hi{width:100%;text-align:center;background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:7px 1px;font-size:.88rem;font-weight:700;color:var(--tx);font-family:inherit}
+.hi:focus{outline:none;border-color:var(--g);background:var(--w)}
+.hs{display:flex;justify-content:space-between;align-items:center;padding-top:7px;border-top:1px solid var(--bd)}
+.htl{font-size:.78rem;color:var(--tx2)}.htl strong{color:var(--tx);font-size:.92rem}
+.hb{padding:3px 10px;border-radius:14px;font-size:.65rem;font-weight:700}
+.cb{height:6px;background:var(--bg);border:1px solid var(--bd);border-radius:3px;overflow:hidden;margin:5px 0}
+.cf{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--g),var(--g2));transition:width .6s}
+.cl{display:flex;justify-content:space-between;font-size:.52rem;color:var(--tx3)}
+.sr{display:flex;align-items:center;gap:6px;padding:6px 0;border-bottom:1px solid #F0EEE8;min-height:34px}
+.sr:last-child{border-bottom:none}
+.srm{flex:1;font-size:.76rem;font-weight:500}
+.sri{width:46px;text-align:center;background:var(--bg);border:1px solid var(--bd);border-radius:6px;padding:5px 2px;font-size:.8rem;font-weight:700;color:var(--tx);font-family:inherit}
+.sri:focus{outline:none;border-color:var(--g)}
+.srb{width:46px;height:4px;background:var(--bg);border:1px solid var(--bd);border-radius:2px;overflow:hidden;flex-shrink:0}
+.srf{height:100%;border-radius:2px;transition:width .3s}
+.srs{font-size:.58rem;font-weight:700;min-width:18px;text-align:center}
+.bo{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:6px}
+.bol{padding:8px 3px;border-radius:6px;text-align:center;cursor:pointer;font-size:.68rem;font-weight:600;border:2px solid transparent;opacity:.4;min-height:34px;display:flex;align-items:center;justify-content:center}
+.bol:active{transform:scale(.97)}.bol.sel{opacity:1;border-color:var(--tx)}
+.boa{font-size:.72rem;color:var(--tx2);line-height:1.4;padding:8px;background:var(--bg);border-radius:6px}
+.toast{position:fixed;bottom:66px;left:50%;transform:translateX(-50%) translateY(8px);background:var(--w);border:1px solid var(--bd);border-radius:8px;padding:5px 14px;font-size:.72rem;color:var(--g);font-weight:600;opacity:0;transition:all .3s;z-index:100;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="a">
+<div class="top"><div class="ti">
+<div class="rg"><svg width="100%" height="100%" viewBox="0 0 50 50"><circle class="rgb" cx="25" cy="25" r="20"/><circle class="rgf" id="hR" cx="25" cy="25" r="20" stroke-dasharray="125.66" stroke-dashoffset="125.66"/></svg><div class="rgt" id="hP">0%</div></div>
+<div><div class="tt">CFA Level 1 &#8212; <em>Ao&#251;t 2026</em></div><div class="ts">21 sem &#183; 3 h/j + 5 h/WE &#183; 525 h &#183; 93 modules</div></div>
+</div></div>
+<div class="sts">
+<div class="st"><div class="sv" style="color:var(--bl)" id="sH">0 h</div><div class="sl">Heures</div></div>
+<div class="st"><div class="sv" style="color:var(--g)" id="sM">0/93</div><div class="sl">Modules</div></div>
+<div class="st"><div class="sv" style="color:var(--a)" id="sA">&#8212;</div><div class="sl">Score QCM</div></div>
+</div>
+<div class="ct">
+<div class="pnl on" id="p-plan">
+<div class="al alw"><b>Checkpoint S12 (31 mai) :</b> Quant + FSA + Equity termin&#233;s + QCM &#8805; 60 % &#8594; continue. Sinon reporte &#224; novembre.</div>
+<div id="topics"></div>
+</div>
+<div class="pnl" id="p-track">
+<div class="tc"><div class="tch"><span class="tct">Heures</span><span class="tcn">Lun&#8211;Ven 3 h &#183; Sam&#8211;Dim 5 h</span></div>
+<div class="ws"><button class="wsb" onclick="chgWk(-1)">&#8249;</button><div class="wsl" id="wL">S1</div><button class="wsb" onclick="chgWk(1)">&#8250;</button></div>
+<div class="hg" id="hG"></div>
+<div class="hs"><div class="htl">Semaine : <strong id="wT">0 h</strong> / 25 h</div><div class="hb" id="wB" style="background:var(--bg);color:var(--tx3)">&#8212;</div></div></div>
+<div class="tc"><div class="tch"><span class="tct">Cumul</span><span class="tcn" id="cH">0 / 525 h</span></div><div class="cb"><div class="cf" id="cF" style="width:0%"></div></div><div class="cl"><span>0</span><span>525 h</span></div></div>
+<div class="tc"><div class="tch"><span class="tct">Scores QCM</span><span class="tcn">Objectif 70 %</span></div><div id="scR"></div></div>
+<div class="tc"><div class="tch"><span class="tct">&#201;nergie</span></div><div class="bo" id="boS"></div><div class="boa" id="boA">S&#233;lectionne ton niveau.</div></div>
+</div>
+<div class="pnl" id="p-method">
+<div class="al ali"><b>Rythme :</b> 3 h/jour semaine, 5 h/jour WE. Sessions 90 min max. 50 % lecture, 30 % QCM, 20 % r&#233;vision erreurs. Anki 30 min/jour. Tout en anglais.</div>
+<div class="al ali"><b>GEA &#8594; FSA :</b> Fiche PCG vs IFRS vs US GAAP d&#232;s S7.</div>
+<div class="al ali"><b>AMF &#8594; Ethics :</b> M&#234;me logique d&#233;ontologique.</div>
+</div>
+</div></div>
+<div class="nav">
+<div class="ni on" onclick="go('plan')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/><path d="M9 14l2 2 4-4"/></svg><span class="nl">Modules</span></div>
+<div class="ni" onclick="go('track')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20V10M18 20V4M6 20v-4"/></svg><span class="nl">Suivi</span></div>
+<div class="ni" onclick="go('method')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg><span class="nl">M&#233;thode</span></div>
+</div>
+<div class="toast" id="toast">&#10003; Sauvegard&#233;</div>
+</div>
+<script>
+var T=[
+{id:"quant",n:"Quantitative Methods",c:"--p1",dt:"S1\u2013S6",h:"125 h",w:"11",ck:{t:"g",x:"Checkpoint S6 : Quant termin\u00e9 \u00b7 QCM \u2265 65 %"},mods:[
+["Rates and Returns","S1"],["Time Value of Money in Finance","S1"],["Statistical Measures of Asset Returns","S2"],["Probability Trees and Conditional Expectations","S2"],["Portfolio Mathematics","S3"],["Simulation Methods","S3"],["Estimation and Inference","S4"],["Hypothesis Testing","S4"],["Parametric and Non-Parametric Tests","S5"],["Simple Linear Regression","S5\u2013S6"],["Introduction to Big Data Techniques","S6"]]},
+{id:"fsa",n:"Financial Statement Analysis",c:"--p2",dt:"S7\u2013S10",h:"100 h",w:"12",ck:{t:"g",x:"Checkpoint S10 : FSA termin\u00e9 \u00b7 QCM \u2265 65 %"},mods:[
+["Introduction to Financial Statement Analysis","S7"],["Analyzing Income Statements","S7"],["Analyzing Balance Sheets","S7"],["Analyzing Statements of Cash Flows I","S8"],["Analyzing Statements of Cash Flows II","S8"],["Analysis of Inventories","S8"],["Analysis of Long-Term Assets","S8"],["Topics in Long-Term Liabilities and Equity","S9"],["Analysis of Income Taxes","S9"],["Financial Reporting Quality","S9"],["Financial Analysis Techniques","S10"],["Introduction to Financial Statement Modeling","S10"]]},
+{id:"equity",n:"Equity Investments",c:"--p2",dt:"S11\u2013S12",h:"50 h",w:"8",ck:{t:"a",x:"CHECKPOINT S12 (31 mai) : test blanc 90 Q \u2265 60 % \u2192 go/no-go"},mods:[
+["Market Organization and Structure","S11"],["Security Market Indexes","S11"],["Market Efficiency","S11"],["Overview of Equity Securities","S11"],["Company Analysis: Past and Present","S12"],["Industry and Competitive Analysis","S12"],["Company Analysis: Forecasting","S12"],["Equity Valuation: Concepts and Basic Tools","S12"]]},
+{id:"fi",n:"Fixed Income",c:"--p3",dt:"S13\u2013S15",h:"75 h",w:"18",ck:{t:"g",x:"Checkpoint S15 : Fixed Income termin\u00e9 \u00b7 QCM \u2265 65 %"},mods:[
+["Fixed-Income Instrument Features","S13"],["Fixed-Income Cash Flows and Types","S13"],["Fixed-Income Issuance and Trading","S13"],["FI Markets for Corporate Issuers","S13"],["FI Markets for Government Issuers","S13"],["FI Bond Valuation: Prices and Yields","S14"],["Yield Spread Measures (Fixed-Rate)","S14"],["Yield Spread Measures (Floating-Rate)","S14"],["Term Structure: Spot, Par, Forward Curves","S14"],["Interest Rate Risk and Return","S14"],["Yield-Based Bond Duration Measures","S15"],["Yield-Based Bond Convexity","S15"],["Curve-Based and Empirical Risk Measures","S15"],["Credit Risk","S15"],["Credit Analysis for Government Issuers","S15"],["Credit Analysis for Corporate Issuers","S15"],["Fixed-Income Securitization","S15"],["ABS and MBS Features","S15"]]},
+{id:"eco",n:"Economics",c:"--p3",dt:"S16",h:"25 h",w:"8",ck:{t:"g",x:"Checkpoint S16 : Economics termin\u00e9"},mods:[
+["The Firm and Market Structures","S16"],["Understanding Business Cycles","S16"],["Fiscal Policy","S16"],["Monetary Policy","S16"],["Introduction to Geopolitics","S16"],["International Trade","S16"],["Capital Flows and the FX Market","S16"],["Exchange Rate Calculations","S16"]]},
+{id:"corp",n:"Corporate Issuers",c:"--p3",dt:"S17",h:"25 h",w:"7",ck:{t:"g",x:"Checkpoint S17 : Corp Issuers termin\u00e9"},mods:[
+["Organizational Forms and Ownership","S17"],["Investors and Other Stakeholders","S17"],["Corporate Governance","S17"],["Working Capital and Liquidity","S17"],["Capital Investments and Capital Allocation","S17"],["Capital Structure","S17"],["Business Models","S17"]]},
+{id:"deriv",n:"Derivatives",c:"--p4",dt:"S18",h:"25 h",w:"8",ck:{t:"g",x:"Checkpoint S18 : Derivatives termin\u00e9"},mods:[
+["Derivative Instrument and Market Features","S18"],["Forward Commitment and Contingent Claims","S18"],["Derivative Benefits, Risks, and Uses","S18"],["Arbitrage, Replication, Cost of Carry","S18"],["Pricing Forward Contracts","S18"],["Pricing Futures Contracts","S18"],["Pricing Interest Rate and Other Swaps","S18"],["Pricing and Valuation of Options","S18"]]},
+{id:"alts",n:"Alternative Investments",c:"--p4",dt:"S19",h:"15 h",w:"5",ck:{t:"g",x:"Checkpoint S19 : Alts termin\u00e9"},mods:[
+["Alternative Investment Features and Structures","S19"],["Alternative Investment Performance and Returns","S19"],["Investments in Private Capital","S19"],["Real Estate and Infrastructure","S19"],["Natural Resources and Hedge Funds","S19"]]},
+{id:"pm",n:"Portfolio Management",c:"--p4",dt:"S19",h:"20 h",w:"6",ck:{t:"g",x:"Fin S19 : test blanc 120 Q \u2265 60 %"},mods:[
+["Portfolio Risk and Return: Part I","S19"],["Portfolio Risk and Return: Part II","S19"],["Portfolio Management: An Overview","S19"],["Basics of Portfolio Planning and Construction","S19"],["Behavioral Biases of Individuals","S19"],["Introduction to Risk Management","S19"]]},
+{id:"ethics",n:"Ethics",c:"--p5",dt:"S20",h:"40 h",w:"5",ck:{t:"a",x:"Ethics QCM \u2265 70 % \u00b7 tous modules \u2265 65 %"},mods:[
+["Ethics and Trust in the Investment Profession","S20"],["Code of Ethics and Standards of Conduct","S20"],["Guidance for Standards I\u2013VII","S20"],["Introduction to GIPS","S20"],["Ethics Application","S20"]]},
+{id:"mocks",n:"Examens blancs",c:"--p6",dt:"S21",h:"25 h",w:"3",ck:{t:"r",x:"Mocks \u2265 70 % = pr\u00eat"},mods:[
+["Mock 1 (180 Q)","S21"],["Mock 2 (180 Q)","S21"],["Mock 3 (180 Q)","S21"]]}
+];
+var MODS=["Quant Methods","Economics","FSA","Equity","Fixed Income","Corp. Issuers","Derivatives","Alt. Investments","Portfolio Mgmt","Ethics"];
+var BM=["","Top !","OK.","Fatigue. R\u00e9duis. Dors 8 h.","\u00c9puis\u00e9. 1-2 jours OFF."];
+var WK=[];(function(){var d=new Date(2026,2,24);for(var i=0;i<21;i++){WK.push(new Date(d));d.setDate(d.getDate()+7);}})();
+var S={ch:{},sc:{},wh:{},bo:0,cw:0},svT=null;
+async function ld(){try{var r=await window.storage.get("cfa_v4");if(r&&r.value)S=JSON.parse(r.value);}catch(e){}}
+async function pe(){try{await window.storage.set("cfa_v4",JSON.stringify(S));}catch(e){}showT();}
+function sav(){clearTimeout(svT);svT=setTimeout(pe,400);}
+function showT(){var t=document.getElementById("toast");t.classList.add("show");setTimeout(function(){t.classList.remove("show");},800);}
+function bTL(){var el=document.getElementById("topics"),h="";
+T.forEach(function(t){var col="var("+t.c+")";var done=0;t.mods.forEach(function(m){if(S.ch[t.id+"_"+m[0]])done++;});var pct=Math.round(done/t.mods.length*100);
+h+='<div class="tp'+(t.id==="quant"?' open':'')+'">';
+h+='<div class="tph" onclick="this.closest(\'.tp\').classList.toggle(\'open\')">';
+h+='<div class="tpd" style="background:'+col+'"></div>';
+h+='<div class="tpm"><div class="tpn">'+t.n+'</div><div class="tps">'+t.dt+' \u00b7 '+t.w+' modules \u00b7 '+t.h+'</div></div>';
+h+='<div class="tpr"><div class="tpv" style="color:'+col+'">'+done+'/'+t.mods.length+'</div><div class="tpp"><div class="tppf" style="width:'+pct+'%;background:'+col+'"></div></div></div>';
+h+='<div class="tpa">\u203A</div></div>';
+h+='<div class="tpb"><div class="tpi">';
+t.mods.forEach(function(m){var k=t.id+"_"+m[0];var d=S.ch[k];
+h+='<label class="m'+(d?' done':'')+'"><input type="checkbox"'+(d?' checked':'')+' data-k="'+k+'" data-tid="'+t.id+'" onchange="tCk(this)"><span>'+m[0]+'</span><span class="mw">'+m[1]+'</span></label>';});
+var cc=t.ck.t==="g"?"ckpg":t.ck.t==="a"?"ckpa":"ckpr";
+h+='<div class="ckp '+cc+'">'+t.ck.x+'</div>';
+h+='</div></div></div>';});el.innerHTML=h;}
+function tCk(cb){S.ch[cb.dataset.k]=cb.checked;cb.closest(".m").classList.toggle("done",cb.checked);sav();uA();
+var tp=cb.closest(".tp"),tid=cb.dataset.tid,t=T.find(function(x){return x.id===tid;});
+var done=0;t.mods.forEach(function(m){if(S.ch[t.id+"_"+m[0]])done++;});var pct=Math.round(done/t.mods.length*100);
+tp.querySelector(".tpv").textContent=done+"/"+t.mods.length;tp.querySelector(".tppf").style.width=pct+"%";}
+function bSc(){document.getElementById("scR").innerHTML=MODS.map(function(m){var v=S.sc[m]||0;var col=v>=70?"var(--g)":v>=60?"var(--a)":"var(--r)";
+return '<div class="sr"><div class="srm">'+m+'</div><input class="sri" type="number" min="0" max="100" value="'+(v||"")+'" placeholder="\u2014" data-m="'+m+'" onchange="sSc(this)"><div class="srb"><div class="srf" style="width:'+v+'%;background:'+col+'"></div></div><div class="srs" style="color:'+col+'">'+(v>=70?"\u2713":v>=60?"~":v>0?"\u2717":"\u2014")+'</div></div>';}).join("");}
+function sSc(i){S.sc[i.dataset.m]=Math.min(100,Math.max(0,parseInt(i.value)||0));sav();bSc();uA();}
+function bBo(){var l=["Top","OK","Mou","KO"];var c=[{b:"var(--gbg)",c:"var(--g)"},{b:"var(--blbg)",c:"var(--bl)"},{b:"var(--abg)",c:"var(--a)"},{b:"var(--rbg)",c:"var(--r)"}];
+document.getElementById("boS").innerHTML=l.map(function(x,i){return '<div class="bol'+(S.bo===i+1?" sel":"")+'" style="background:'+c[i].b+';color:'+c[i].c+'" onclick="sBo('+(i+1)+',this)">'+x+'</div>';}).join("");
+if(S.bo)document.getElementById("boA").textContent=BM[S.bo];}
+function sBo(l,el){S.bo=l;document.querySelectorAll(".bol").forEach(function(e){e.classList.remove("sel");});el.classList.add("sel");document.getElementById("boA").textContent=BM[l];sav();}
+function bHr(){var d=[["L","3h"],["M","3h"],["Me","3h"],["J","3h"],["V","3h"],["S","5h"],["D","5h"]];
+var k="w"+S.cw;if(!S.wh[k])S.wh[k]=[0,0,0,0,0,0,0];
+document.getElementById("hG").innerHTML=d.map(function(x,i){return '<div class="hd"><div class="hl">'+x[0]+'</div><div class="ht">'+x[1]+'</div><input class="hi" type="number" min="0" max="10" step="0.5" value="'+(S.wh[k][i]||"")+'" placeholder="0" data-i="'+i+'" onchange="sHr(this)"></div>';}).join("");uWk();}
+function sHr(inp){var k="w"+S.cw;if(!S.wh[k])S.wh[k]=[0,0,0,0,0,0,0];S.wh[k][parseInt(inp.dataset.i)]=parseFloat(inp.value)||0;sav();uWk();uA();}
+function chgWk(d){S.cw=Math.max(0,Math.min(20,S.cw+d));bHr();}
+function fD(d){return d.toLocaleDateString("fr-FR",{day:"numeric",month:"short"});}
+function uWk(){var s=WK[S.cw],e=new Date(s);e.setDate(e.getDate()+6);
+document.getElementById("wL").textContent="S"+(S.cw+1)+" \u2014 "+fD(s)+" au "+fD(e);
+var k="w"+S.cw,hrs=S.wh[k]||[0,0,0,0,0,0,0],tot=Math.round(hrs.reduce(function(a,b){return a+b;},0)*10)/10;
+document.getElementById("wT").textContent=tot+" h";var b=document.getElementById("wB");
+if(tot>=25){b.textContent="OK";b.style.background="var(--gbg)";b.style.color="var(--g)";}
+else if(tot>=20){b.textContent="Presque";b.style.background="var(--abg)";b.style.color="var(--a)";}
+else if(tot>0){b.textContent="Retard";b.style.background="var(--rbg)";b.style.color="var(--r)";}
+else{b.textContent="\u2014";b.style.background="var(--bg)";b.style.color="var(--tx3)";}}
+function tH(){var t=0;for(var k in S.wh)if(Array.isArray(S.wh[k]))t+=S.wh[k].reduce(function(a,b){return a+b;},0);return Math.round(t*10)/10;}
+function cM(){var d=0,t=0;T.forEach(function(tp){tp.mods.forEach(function(m){t++;if(S.ch[tp.id+"_"+m[0]])d++;});});return{d:d,t:t};}
+function uA(){var th=tH(),mc=cM();var pct=Math.round((mc.d/mc.t*50)+(Math.min(100,th/525*100)*0.5));
+document.getElementById("sH").textContent=th+" h";document.getElementById("sM").textContent=mc.d+"/"+mc.t;
+var sc=Object.values(S.sc).filter(function(v){return v>0;});var avg=sc.length?Math.round(sc.reduce(function(a,b){return a+b;},0)/sc.length):null;
+document.getElementById("sA").textContent=avg!==null?avg+" %":"\u2014";
+if(avg!==null)document.getElementById("sA").style.color=avg>=70?"var(--g)":avg>=60?"var(--a)":"var(--r)";
+document.getElementById("hP").textContent=pct+"%";document.getElementById("hR").style.strokeDashoffset=125.66-(125.66*pct/100);
+document.getElementById("cH").textContent=th+" / 525 h";document.getElementById("cF").style.width=Math.min(100,th/525*100)+"%";}
+function go(id){document.querySelectorAll(".ni").forEach(function(n){n.classList.remove("on");});document.querySelectorAll(".pnl").forEach(function(p){p.classList.remove("on");});
+var m={plan:0,track:1,method:2};document.querySelectorAll(".ni")[m[id]].classList.add("on");document.getElementById("p-"+id).classList.add("on");window.scrollTo(0,0);}
+async function init(){await ld();bTL();bSc();bBo();bHr();uA();}
+init();
+</script>
+</body>
+</html>
